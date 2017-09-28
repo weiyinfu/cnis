@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全部公司列表</title>
+</head>
+<body>
+<form action="company">
+    <input type="text" placeholder="许可证号查询" name="cer">
+</form>
+<form action="company">
+    <input type="text" placeholder="node id 查询" name="nodeid"></form>
+<form action="company">
+    <input type="text" placeholder="access id查询" name="accessid"></form>
+<form action="company">
+    <input type="text" placeholder="公司名称查询" name="companyname"></form>
+<ol>
+    {{#data}}
+    <li><a href="company?cer={{certificate_number}}" target="_blank">{{certificate_number}}</a><br>
+    </li>
+    {{/data}}
+</ol>
+</body>
+</html>

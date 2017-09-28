@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>全国许可证审批系统</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<div>
+    <h1>公司基本信息</h1>
+    <h4>基本信息</h4>
+    <ul>
+        <li>公司网址nodeId：<a href="http://xkzsp.cnis.gov.cn/node/{{company.node_id}}" target="_blank">公司网址</a></li>
+        <li>公司网页备份：<a href="node?node_id={{company.node_id}}" target="_blank">网页备份</a></li>
+        <li>公司名称：{{company.name}}</li>
+        <li>住所：{{company.address}}</li>
+        <li>生产地址：{{company.produce_address}}</li>
+        <li>所属省份：{{company.province}}</li>
+        <li>所在区域（省市县）：{{company.sheng}}&gt;{{company.shi}}&gt;{{company.xian}}</li>
+        <hr>
+        <li>邮箱：{{company.email}}</li>
+        <li>组织机构代码：{{company.organization_code}}</li>
+        <li>邮编：{{company.postcode}}</li>
+        <li>传真：{{company.fax}}</li>
+    </ul>
+    <h4>法人信息</h4>
+    <ul>
+        <li>法定代表人或企业负责人：{{company.legal_person}}</li>
+        <li>法人代表身份证号：{{company.lp_id}}</li>
+        <li>身份证原件扫描件：<img width="100" src="/res?file={{company.lp_idcard_img}}" alt="{{company.lp_idcard_img}}"></li>
+        <li>法人代表电话：{{company.lp_phone}}</li>
+        <li>法人代表职务：{{company.lp_phone}}</li>
+        <li>电话：{{company.lp_phone}}</li>
+        <li>手机：{{company.lp_mobile}}</li>
+    </ul>
+    <h4>质量负责人信息</h4>
+    <ul>
+        <li>质量负责人：{{company.quality_manager}}</li>
+        <li>质量负责人身份证号：{{company.qm_id}}</li>
+        <li>办公电话：{{company.qm_phone}}</li>
+        <li>手机：{{company.qm_mobile}}</li>
+    </ul>
+    <h4>联系人</h4>
+    <ul>
+        <li>联系人姓名：{{company.contact}}</li>
+        <li>联系人身份证号：{{company.contact_id}}</li>
+        <li>联系人电话：{{company.contact_phone}}</li>
+        <li>手机：{{company.contact_mobile}}</li>
+    </ul>
+    <h4>其他信息</h4>
+    <ul>
+        <li>地理省：{{company.company_province}}</li>
+        <li>地理市：{{company.company_city}}</li>
+        <li>地理区：{{company.company_street}}</li>
+        <li>年利税金额：{{company.annual_profit_tax}}</li>
+        <li>年总产值：{{company.annual_gross_output}}</li>
+        <li>营业执照注册号/统一社会信用代码：{{company.licence_number}}</li>
+        <li>营业执照原件扫描件：<img src="res?file={{company.licence_image}}" width="100px" alt="{{company.licence_image}}"></li>
+        <li>工商登记机构：{{company.register_org}}</li>
+        <hr>
+        <li>成立日期：{{company.establish_date}}</li>
+        <li>经营期限：{{company.run_date}}</li>
+        <li>注册资金（万元）：{{company.register_capital}}</li>
+        <li>固定资产（万元）：{{company.fixed_capital}}</li>
+        <li>年总产值（万元）：{{company.annual_money}}</li>
+        <li>年销售额（万元）：{{company.annual_sales}}</li>
+        <li>年缴税金额（万元）：{{company.annual_tax}}</li>
+        <li>年利润（万元）：{{company.annual_profit}}</li>
+        <hr>
+        <li>从业人员数（人）：{{company.total_staff}}</li>
+        <li>技术人员数（人）：{{company.technology_staff}}</li>
+        <li>检验人员数（人）：{{company.test_staff}}</li>
+        <li>生产人员数（人）：{{company.produce_staff}}</li>
+        <li>企业规模：{{company.company_scale}}</li>
+        <hr>
+        <li>法人职位：{{company.lp_job}}</li>
+        <li>企业电话：{{company.company_phone}}</li>
+    </ul>
+</div>
+<div>
+    <h1>许可证申请信息</h1>
+    <ul>
+        <li>企业承诺：<p class="file-field">{{apply.promise}}</p></li>
+        <li>产品名称：{{apply.product_name}}</li>
+        <li>产品nodeId：<a href="http://xkzsp.cnis.gov.cn/node/{{apply.product_node_id}}">产品主页{{apply.product_node_id}}</a>
+        </li>
+        <li>明细：
+            <pre>{{apply.product_detail}}</pre>
+        </li>
+        <li>增项明细：
+            <pre>{{apply.add_unit_detail}}</pre>
+        </li>
+        <li>产品单元：{{apply.product_unit}}</li>
+        <li>证书编号：{{apply.certificate_number}}</li>
+        <li>有效期：{{apply.certificate_expired_date}}</li>
+        <li>说明：{{apply.explanation}}</li>
+        <li>单元数：{{apply.product_unit_count}}</li>
+        <li>发证类别：{{apply.certificate_type}}</li>
+        <li>不予许可原因：{{apply.dismiss_reason}}</li>
+        <li>实地核查人员：{{apply.inspect_workers}}</li>
+        <li>检验机构：{{apply.test_agency}}</li>
+        <li>备注：{{apply.notes}}</li>
+        <li>多媒体信息：<p class="file-field">{{apply.media}}</p></li>
+        <li>实施细则规定应提交的其它材料：
+            {{#apply_material}}
+            <ul>
+                <li>材料名称：{{name}}</li>
+                <li>材料路径：<p class="file-field">{{path}}</p></li>
+            </ul>
+            <hr>
+            {{/apply_material}}
+        </li>
+        <li>其它：{{apply.province_policy}} 从来没见过这个字段</li>
+        <li>申请类别：{{apply.apply_type}}</li>
+        <li>明细列表：{{#apply_detail}}
+            <ul>
+                <li>产品单元：{{product_unit}}</li>
+                <li>申请类型：{{apply_type}}</li>
+                <li>品种规格型号：{{product_unit_detail}}</li>
+                <li>实地核查报告：<p class="file-field">{{inspect_result}}</p></li>
+                <li>实地核查记录：<p class="file-field">{{inspect_record}}</p></li>
+                <li>实地核查不符合和建议改进条款汇总表：<p class="file-field">{{inspect_advice}}</p></li>
+                <li>检验报告：<p class="file-field">{{inspect_report}}</p></li>
+                <li>检验机构：{{test_org}}</li>
+
+                <li>人员信息表：<p class="file-field">{{worker_info}}</p></li>
+                <li>设备信息表：<p class="file-field">{{device_info}}</p></li>
+            </ul>
+            <hr>
+            {{/apply_detail}}
+        </li>
+        <li>原生产许可证编号：{{apply.old_certificate_number}}</li>
+        <li>原生产许可证发证日期：{{apply.old_certificate_date}}</li>
+        <li>原生产许可证有效期：{{apply.old_certificate_expire_date}}</li>
+        <li>原生产许可证正本、副本及插页明细原件扫描件：<p class="file-field">{{apply.old_certificate_image}}</p></li>
+        <li>监督抽查合格报告：<p class="file-field">{{apply.qualification_report}}</p></li>
+
+        <li>许可范围变更事项：{{apply.certificate_change_reason}}</li>
+        <li>产业政策承诺：<p class="file-field">{{apply.industry_policy_promise}}</p></li>
+    </ul>
+    <h4>延续</h4>
+    <ul>
+        <li>其他说明（延续）：{{apply.continue_explanation}}</li>
+        <li>名称变更类型：{{apply.name_change_type}}</li>
+        <li>原营业执照扫描件：<p class="file-field">{{apply.old_license_image}}</p></li>
+        <li>工商管理部门的更名证明扫描件：<p class="file-field">{{apply.gsj_prove}}</p></li>
+        <li>有关行政主管部门的住所更名证明扫描件：<p class="file-field">{{apply.mzj_prove}}</p></li>
+        <li>延续减免事项：{{apply.continue_deduction}}</li>
+        <li>监督抽查合格报告:
+            <ul>
+                {{#qualification_report}}
+                <li>监督抽查产品名称：{{product_name}}</li>
+                <li>产品单元：{{product_unit}}</li>
+                <li>监督抽查检验报告：<p class="file-field">{{report}}</p></li>
+                {{/qualification_report}}
+            </ul>
+        </li>
+        <li>免实地核查承诺书及其他证明材料：<p class="file-field">{{apply.deduction_promise}}</p></li>
+        <li>其他情况说明（含符合产业政策情况说明）：{{apply.other_notes}}</li>
+    </ul>
+    <h4>变更</h4>
+    <ul>
+        <li>企业名称（变更前）:{{apply.old_company_name}}</li>
+        <li>住所名称（变更前）:{{apply.old_address}}</li>
+        <li>营业执照注册号（变更前）:{{apply.old_license_number}}</li>
+        <li>生产地址名称（变更前）:{{apply.old_produce_address}}</li>
+        <li>营业执照发证日期（变更前）: {{apply.old_license_create_date}}</li>
+        <li>营业执照发证日期（变更后）: {{apply.new_license_create_date}}</li>
+    </ul>
+    <h4>补领</h4>
+    <ul>
+        <li>补领原因：{{apply.replace_reason}}</li>
+        <li>遗失或损毁时间：{{apply.miss_date}}</li>
+        <li>补领证书类型：{{apply.replace_type}}</li>
+        <li>刊登报纸名称：{{apply.newspaper}}</li>
+        <li>声明刊登时间：{{apply.newspaper_date}}</li>
+        <li>遗失声明：{{apply.miss_announcement}}</li>
+    </ul>
+    <h4>文档下载</h4>
+    <ul>
+        <li>企业申请书：<p class="file-field">{{apply.apply_document}}</p></li>
+        <li>其他材料：<p class="file-field">{{apply.other_material}}</p></li>
+    </ul>
+</div>
+<div>
+    <h1>许可证审批进度</h1>
+    <ul>
+        <li>登记材料：<a
+                href="http://xkzsp.cnis.gov.cn/node/{{process.register_material_id}}">{{process.register_material}}</a>
+        </li>
+        <li>小签报：<a href="http://xkzsp.cnis.gov.cn/node/{{process.small_sign_id}}">{{process.small_sign}}</a></li>
+        <li>大签报：<a href="http://xkzsp.cnis.gov.cn/node/{{process.big_sign_id}}">{{process.big_sign}}</a></li>
+        <li>发证日期：{{process.certificate_create_date}}</li>
+        <li>审查人：{{process.certificate_examiner}}</li>
+        <li>申请日期：{{process.certificate_apply_date}}</li>
+        <li>受理日期：{{process.certificate_accept_date}}</li>
+        <li>审查部接受材料日期：{{process.receive_material_date}}</li>
+        <li>实地核查日期：{{process.inspect_date}}</li>
+        <li>接收样品日期：{{process.receive_sample_date}}</li>
+        <li>检验日期：{{process.test_date}}</li>
+        <li>中心主任审核日期：{{process.manager_check_date}}</li>
+        <li>处长审批日期：{{process.director_check_date}}</li>
+        <li>主管副司长审核日期：{{process.deputy_check_date}}</li>
+        <li>状态：{{process.state}}</li>
+        <li>操作日志：{{process.operation_log}}</li>
+        <li>申请人：{{process.applicant}}</li>
+        <li>受理人：{{process.handler}}</li>
+        <li>省局寄送日期：{{process.send_province_date}}</li>
+        <li>省局寄送信息：{{process.send_province_info}}</li>
+        <li>审查部寄送日期：{{process.send_review_date}}</li>
+        <li>审查部寄送信息：{{process.send_review_info}}</li>
+        <li>总局审批通过：{{process.final_office_pass}}</li>
+        <li>省局受理：{{process.province_receive_info}}</li>
+        <li>审查中心登记：{{process.review_receive_info}}</li>
+        <li>材料审查通过：{{process.review_pass_info}}</li>
+        <li>证书打印日期：{{process.certificate_print_info}}</li>
+        <li>数据公示日期：{{process.certificate_public_info}}</li>
+    </ul>
+</div>
+</body>
+<script>
+    $(".file-field").each(function () {
+        if ($(this).text() == "None")return
+        var s = $(this).text().split(';')
+        $(this).text("")
+        for (var i in s) {
+            var it = s[i]
+            $(this).append("<a href='res?file=" + it + "' target='_blank'>" + it + "</a>")
+            $(this).append("<br>")
+        }
+    })
+</script>
+</html>

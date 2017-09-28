@@ -1,0 +1,19 @@
+两种url：
+* http://xkzsp.cnis.gov.cn/system/files/
+* http://xkzsp.cnis.gov.cn/sites/default/files/sm/
+
+第一种system类型的包括多种文件夹
+* lc
+* yssm
+* ir
+* sm
+* rf
+* qycn
+* pm
+* mm
+* mcn
+* cyzccn
+* af
+* 直接放在此目录下的文件
+
+第二种sites类型的，sm文件夹下面全是文件。
